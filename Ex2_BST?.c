@@ -73,7 +73,14 @@ int main() {
         insert(root, v[i]);
 
     if (esteBST(root, LONG_MIN, LONG_MAX)) {
-        printf("Arborele este un BST valid.\n");
+        printf("Arborele este un BST valid!\n");
     } else {
         printf("Arborele NU este un BST valid.\n");
     }
+
+    printf("Traversare PreOrder: ");
+    preOrderTraversal(root);
+    printf("\n");
+
+    return 0;
+}
