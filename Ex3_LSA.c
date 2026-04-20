@@ -9,6 +9,13 @@ struct node {
     struct node* rightChild;
 };
 
+void postOrderTraversal(struct node* current) {
+    if (current != NULL) {
+        postOrderTraversal(current->leftChild);
+        postOrderTraversal(current->rightChild);
+        printf("%d ", current->data);
+    }
+}
 
 struct node* insert(struct node* root, int data) {
     
@@ -90,6 +97,10 @@ int main() {
     if (stramos != NULL) {
         printf("Cel mai apropiat stramos comun pentru %d si %d este: %d\n", val1, val2, stramos->data);
     }
+
+    printf("Traversare PostOrder: ");
+    postOrderTraversal(root);
+    printf("\n");
 
     return 0;
 }
