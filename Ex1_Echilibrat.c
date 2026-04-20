@@ -8,6 +8,13 @@ struct node {
     struct node* rightChild;
 };
 
+void inOrderTraversal(struct node* current) {
+    if (current != NULL) {
+        inOrderTraversal(current->leftChild);
+        printf("%d ", current->data);
+        inOrderTraversal(current->rightChild);
+    }
+}
 
 struct node* insert(struct node* root, int data) {
     
@@ -65,7 +72,7 @@ bool echilibrat(struct node* nod)
 }    
 int main() {
     struct node* root = NULL;
-int v[7] = {20, 10, 30, 5, 15, 25, 35};
+    int v[7] = {20, 10, 30, 5, 15, 25, 35};
     root = insert(root, v[0]);
     for (int i = 1; i < 7; i++) {
         insert(root, v[i]);
@@ -78,8 +85,10 @@ int v[7] = {20, 10, 30, 5, 15, 25, 35};
         printf("Rezultat: Arborele NU este echilibrat.\n");
     }
 
+    printf("Traversare InOrder: ");
+    inOrderTraversal(root);
+    printf("\n");
+
    
     return 0;
 }
-
-
